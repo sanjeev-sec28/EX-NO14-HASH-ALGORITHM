@@ -1,35 +1,76 @@
-# EX-NO14-HASH-ALGORITHM
+# EX-NO-14 — HASH ALGORITHM
 
-## AIM:
-To implement HASH ALGORITHM
+## AIM
 
-## ALGORITHM:
+To implement Hash Algorithm.
 
-1. Hash Algorithm is used to convert input data (message) into a fixed-size string, typically a hash value, which uniquely represents the original data.
+---
 
-2. Initialization:
-   - Choose a hash function \( H \) (e.g., SHA-256, MD5, etc.).
-   - The message \( M \) to be hashed is input.
+# ALGORITHM
 
-3. Message Preprocessing:
-   - Break the message \( M \) into fixed-size blocks. If necessary, pad the message to make it compatible with the block size required by the hash function.
-   - For example, in SHA-256, the message is padded to ensure that its length is a multiple of 512 bits.
+1. A Hash Algorithm is used to convert input data into a fixed-size hash value.
 
-4. Hash Calculation:
-   - Process the message block by block, applying the hash function \( H \) iteratively to produce an intermediate hash value.
-   - For SHA-256, each block is processed through a series of logical operations, bitwise manipulations, and modular additions.
+2. Initialize:
+
+   * Choose a message `M`
+   * Choose a hash function `H`
+
+3. Message Processing:
+
+   * Convert the message into blocks.
+   * Apply padding if necessary.
+
+4. Hash Generation:
+
+   * Process the message using the hash function.
+   * Generate a fixed-size hash value.
 
 5. Output:
-   - After all blocks are processed, the final hash value (digest) is produced, which is a fixed-size output (e.g., 256-bit for SHA-256).
-   - The resulting hash is unique to the input message, meaning even a small change in the message will result in a completely different hash.
 
-6. Security: The strength of the hash algorithm lies in its collision resistance, ensuring that it is computationally infeasible to find two different messages that produce the same hash value.
+   * The final hash value uniquely represents the message.
 
+6. Security:
 
-## Program:
+   * Hash algorithms provide integrity and collision resistance.
 
+---
 
-## Output:
+# PROGRAM
 
-## Result:
-The program is executed successfully.
+```c id="7qrrzi"
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char message[100];
+    int i, hash = 0;
+
+    printf("Enter the message: ");
+    scanf("%s", message);
+
+    // Simple hash generation
+    for(i = 0; i < strlen(message); i++) {
+        hash = hash + message[i];
+    }
+
+    printf("\nHash Value: %d\n", hash);
+
+    return 0;
+}
+```
+
+---
+
+# SAMPLE OUTPUT
+
+```text id="pknzv0"
+Enter the message: hello
+
+Hash Value: 532
+```
+
+---
+
+# RESULT
+
+The Hash Algorithm program was implemented and executed successfully.
